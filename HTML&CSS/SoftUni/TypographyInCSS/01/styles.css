@@ -1,0 +1,7 @@
+article > p{
+    background-color: yellow;
+}
+
+span.special-words{
+    font-size: 15px;
+}
