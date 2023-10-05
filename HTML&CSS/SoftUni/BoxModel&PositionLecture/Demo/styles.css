@@ -1,0 +1,42 @@
+/* 
+body{
+    background: #eee;
+}
+p{
+    background: #666;
+}
+/* span{
+    background: #080;
+    padding: 1em;
+    margin: 1em;
+    display: inline-block; /* позволява на marging/padding да работят и по вертикала 
+} 
+a{
+    display: block;
+    background: gray;
+    padding: 1em;
+    margin-right: 15em;
+    margin-left: 15em;
+}
+a:hover{
+    background: red;
+} */
+
+body{
+    background: #eee;
+}
+
+/* .box{
+    background: red;
+    width: 50px;
+    height: 50px;
+    overflow: visible;
+    border: 2px dashed;
+} */
+
+.box{
+    border: 2px solid #333;
+    padding: 1em;
+    line-height: 1;
+    margin: 1em;
+}
