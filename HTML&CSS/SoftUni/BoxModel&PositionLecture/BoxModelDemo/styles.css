@@ -1,0 +1,30 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+*{
+    box-sizing: inherit;
+}
+
+html{
+    box-sizing: border-box;
+}
+
+body{
+    background: #eee;
+}
+
+.container{
+    background: #666;
+    max-width: 30em;
+    overflow: hidden;
+}
+
+.box{
+    display: inline-block;
+    width: 33.3%;
+    padding: 1em;
+    background: red;
+    margin: 0.5em 0;
+}

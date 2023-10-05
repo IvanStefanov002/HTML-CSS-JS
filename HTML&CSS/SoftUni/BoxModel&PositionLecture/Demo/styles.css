@@ -22,7 +22,7 @@ a:hover{
     background: red;
 } */
 
-body{
+body *{
     background: #eee;
 }
 
@@ -34,9 +34,44 @@ body{
     border: 2px dashed;
 } */
 
+.margin{
+    background: orange;
+    padding: 3em;
+    /* box-shadow: 10px 5px 5px red;   */
+}
+
+.border{
+    padding: 0.5em;
+    background: lightgreen;
+}
+
+.padding{
+    padding: 1em;
+    background: greenyellow;
+}
+
 .box{
-    border: 2px solid #333;
+    background-color: lightblue;
     padding: 1em;
     line-height: 1;
-    margin: 1em;
+}
+
+.box2{
+    margin: 1em 0 0 0;
+    margin: 0 0 0 1em;
+    margin: 1em 0;
+
+    margin-block: 1em;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+
+    margin-inline: 1em;
+
+    padding: 1em 0 0 0;
+    padding: 0 0 0 1em;
+    padding: 1em 0;
+
+    padding-block: 1em;
+    padding-block-start: 1em;
+    padding-block-end: 1em;
 }
