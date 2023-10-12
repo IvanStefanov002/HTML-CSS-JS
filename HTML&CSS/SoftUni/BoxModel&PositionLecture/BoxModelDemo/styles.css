@@ -17,14 +17,21 @@ body{
 
 .container{
     background: #666;
-    max-width: 30em;
-    overflow: hidden;
+    max-width: 30em; 
 }
 
 .box{
     display: inline-block;
-    width: 33.3%;
+    width: 23.3%;
     padding: 1em;
     background: red;
-    margin: 0.5em 0;
+    margin: 0.5em;
+}
+
+.box:nth-child(2){
+    background-color: green;
+    position: absolute;
+    opacity: 0.5;
+    bottom: 0;
+    left: 0;
 }
