@@ -1,0 +1,41 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 10px solid black;
+    height: 90vh;
+    flex-wrap: no-wrap;
+    align-content: flex-start;
+}
+
+.box {
+    width: 150px;
+    height: 150px;
+    font-size: 8em;
+    text-align: center;
+    border-radius: 15px;
+    position: absolute;
+    transition: transform 0.3s ease-in-out, z-index 0.3s ease-in-out;
+    z-index: 1;
+}
+
+#box1 {
+    position: absolute;
+    background-color: red;
+}
+
+#box2 {
+    position: absolute;
+    background-color: yellow;
+}
+
+#box3 {
+    position: absolute;
+    background-color: green;
+}
+
+#box4 {
+    position: absolute;
+    background-color: blue;
+}
+

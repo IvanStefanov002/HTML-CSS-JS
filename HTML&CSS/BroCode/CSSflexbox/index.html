@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="box" id="box1">1</div>
+        <div class="box" id="box2">2</div>
+        <div class="box" id="box3">3</div>
+        <div class="box" id="box4">4</div>
+    </div>
+
+    <script>
+        deg = 0;
+        let degrees = [0, 0, 0, 0]; // Initialize the degrees for each box
+
+        document.querySelectorAll(".box").forEach((box, index) => {
+            box.style.transform = `rotate(${degrees[index]}deg)`; // Apply initial rotation
+
+            box.addEventListener("click", () => {
+                // Rotate the clicked box by adding 22.5 degrees more than the previous one
+                degrees[index] += deg;
+                deg += 22.5;
+
+                // Ensure the maximum rotation is 180 degrees
+                if (degrees[index] >= 45) {
+                    degrees[index] = 45;
+                }
+                if (degrees[index] <= -45) {
+                    degrees[index] = -45;
+                }
+
+                // Apply the rotation to the clicked box
+                box.style.transform = `rotate(${degrees[index]}deg)`;
+
+                // Check if all boxes have reached their maximum rotation (90 degrees)
+                const allMaxed = degrees.every(degree => Math.abs(degree) === 45);
+
+                if (allMaxed) {
+                    // Reset degrees and rotation after a delay
+                    setTimeout(() => {
+                        degrees = [0, 0, 0, 0]; // Reset degrees
+                        document.querySelectorAll(".box").forEach(box => {
+                            box.style.transform = "rotate(0deg)"; // Reset rotation
+                            box.style.zIndex = "1";
+                        });
+                    }, 300);
+                } else {
+                    // Set a timeout to change the z-index of the next box after a delay
+                    setTimeout(() => {
+                        // Reset the z-index of all boxes
+                        document.querySelectorAll(".box").forEach(otherBox => {
+                            otherBox.style.zIndex = "1";
+                        });
+
+                        // Determine the next box index
+                        let nextBoxIndex = (index + 1) % 4;
+
+                        // Bring the next box to the front
+                        document.querySelectorAll(".box")[nextBoxIndex].style.zIndex = "2";
+                    }, 300);
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
+
+
+

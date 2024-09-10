@@ -1,0 +1,19 @@
+body{
+    margin: 0px;
+}
+.box{
+    border: 5px solid;
+    font-size: 5em;
+    width: 250px;
+    height: 250px;
+    margin: auto;
+}
+#box1{
+    background-color: red;
+}
+#box2{
+    background-color: blue;
+}
+
+/* margin = margin-top + margin-bottom + margin-left + margin-right */
+/* margin: auto - makes object moves with the page */

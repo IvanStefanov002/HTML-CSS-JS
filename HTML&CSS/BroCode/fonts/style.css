@@ -1,0 +1,21 @@
+@font-face {
+    src: url(fonts/Roboto-LightItalic.ttf);
+    font-family: Roboto-Light;
+}
+
+@font-face {
+    font-family: Oswald-Light;
+    src: url(fonts/Oswald-Light.ttf);
+}
+
+
+h1{
+    font-family: Roboto-Light, verdana, arial;
+    /* if browser can't display verdana next up is to display arial */
+}
+p{
+    font-family: 'Oswald-Light', "lucida console", "courier new";
+    font-size: 18px;
+    font-weight: bold;
+    font-style: italic;
+}

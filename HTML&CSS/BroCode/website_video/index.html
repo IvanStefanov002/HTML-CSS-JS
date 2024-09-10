@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initilize">
+    <title>Document</title>
+    <style>
+        .youtube-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #FF0000; /* You can choose your desired color */
+            color: #FFFFFF; /* Text color */
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h2>How to insert videos in HTML code by BroCode</h2>
+    <a class="youtube-button" href="https://www.youtube.com/watch?v=EziD1SEXTJs&t=8s&ab_channel=BroCode"
+    target="_blank">
+    Youtube page
+    </a>
+    <br><br><br>
+    <video width="500px" controls autoplay muted loop>
+        <source src="videos/brocode.mp4" type="video/mp4">
+
+        <!--in case this mp4 does not work we can add other options:-->
+        <source src="videos/brocode.webm" type="video/webm">
+
+    </video>
+
+</body>
+</html>

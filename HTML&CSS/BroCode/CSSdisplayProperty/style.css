@@ -1,0 +1,15 @@
+div{
+    background-color: red;
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    visibility: visible;
+    /* display can be - inline, block, inline-block, none */
+}
+span{
+    background-color: blue;
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    /* if we add display to span to be a block then we can adjust the height/width otherwise its inline */
+}
