@@ -1,0 +1,209 @@
+/* General reset and styling */
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+/* Header styling */
+.header {
+    width: 100%;
+    height: 50px;
+    background-color: #B4FF00;
+}
+
+.inner_header {
+    width: 90%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.logo_container {
+    height: 100%;
+    display: table;
+    float: left;
+}
+
+.logo_container h1 {
+    color: #002340;
+    height: 100%;
+    display: table-cell;
+    vertical-align: middle;
+    font-family: 'Montserrat';
+    font-size: 16px;
+    font-weight: 200;
+}
+
+.logo_container h1 span {
+    font-weight: 800;
+}
+
+.navigation {
+    float: right;
+    height: 100%;
+}
+
+.navigation a {
+    height: 100%;
+    display: table;
+    float: left;
+    padding: 0px 1px;
+}
+
+.navigation a:last-child {
+    padding-right: 0px;
+}
+
+.navigation a li {
+    display: table-cell;
+    vertical-align: middle;
+    height: 100%;
+    color: #002340;
+    font-family: 'Montserrat';
+    font-size: 8px;
+    padding: 0px 2px;
+}
+
+/* Main container styling */
+.main {
+    width: 100%;
+    height: 410px;
+    display: block;
+    background-color: white;
+}
+
+.inner_main {
+    width: 100%;
+    display: block;
+}
+
+.container_one {
+    height: 140px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    /* border: 2px solid red; */
+    box-sizing: border-box;
+}
+
+.image_container {
+    width: 100%;
+    height: 100%;
+}
+
+.image_container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the entire container without distortion */
+}
+
+.content_container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.logo {
+    width: auto;
+    height: auto;
+}
+
+.logo img {
+    max-width: 50px; /* Adjust the size of the logo as needed */
+    height: auto;
+}
+
+.title {
+    text-align: right;
+}
+
+.title h1 {
+    font-size: 14px;
+    font-weight: 800;
+    margin: 0;
+    padding: 0;
+    color: black; /* Ensure the text is visible over the background */
+}
+
+.title h2 {
+    font-size: 18px;
+    font-weight: 800;
+    margin: 0;
+    padding: 0;
+    color: black; /* Ensure the text is visible over the background */
+}
+
+#section_one, #section_two {
+    height: 270px;
+    width: 50%;
+    /* border: 2px solid blue; */
+    box-sizing: border-box;
+}
+
+.container_two {
+    width: 100%;
+    display: flex;
+    box-sizing: border-box;
+}
+
+#section_one {
+    height: 270px;
+    width: 50%;
+    background-image: url('background-image.jpg'); /* Replace with your image path */
+    background-size: cover; /* Ensures the image covers the entire container */
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* Space between buttons */
+    box-sizing: border-box;
+    position: relative;
+    flex-direction: column;
+}
+
+.rounded-btn {
+    width: 150px;
+    padding: 10px 20px;
+    border-radius: 50px; /* Makes the button rounded */
+    background-color: rgba(255, 255, 255, 0.3); /* Transparent white background */
+    border: 2px solid red; /* Border to make buttons stand out */
+    color: black;
+    font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.rounded-btn:hover {
+    background-color: rgba(255, 255, 255, 0.5); /* Slightly less transparent on hover */
+}
+
+#section_two {
+    height: 270px;
+    width: 50%;
+    background-image: url('background-image.jpg'); /* Replace with your image path */
+    background-size: cover; /* Ensures the image covers the entire container */
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* Space between buttons */
+    box-sizing: border-box;
+    position: relative;
+    flex-direction: column;
+}
+
+/* Footer styling */
+.footer {
+    width: 100%;
+    height: 50px;
+    background-color: #B4FF00;
+}

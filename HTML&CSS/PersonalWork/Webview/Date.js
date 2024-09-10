@@ -1,0 +1,5 @@
+class Date {
+    constructor(parameters) {
+        
+    }
+}
