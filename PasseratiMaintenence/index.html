@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Passat B8 Maintenance</title>
+<style>
+  body { font-family: Arial, sans-serif; background: #f5f5f5; margin: 0; padding: 0; }
+  header { background: #004d99; color: white; padding: 1rem; text-align: center; }
+  main { max-width: 900px; margin: 2rem auto; padding: 1rem; background: white; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+  table { width: 100%; border-collapse: collapse; margin-bottom: 1rem; }
+  th, td { padding: 0.5rem; border-bottom: 1px solid #ddd; text-align: left; }
+  th { background: #eee; }
+  tr.green { background: #d4edda; }
+  tr.yellow { background: #fff3cd; }
+  tr.red { background: #f8d7da; }
+  form { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
+  input, select, button { padding: 0.5rem; font-size: 1rem; }
+  input[type="number"] { width: 100px; }
+  button { background: #004d99; color: white; border: none; cursor: pointer; border-radius: 4px; }
+  button:hover { background: #003366; }
+  .action-btn { background: #ffa500; margin-left: 5px; }
+  .action-btn:hover { background: #cc8400; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Passat B8</h1>
+</header>
+
+<main>
+  <form id="addForm">
+    <select id="part">
+      <option value="oil">Масло</option>
+      <option value="airFilter">Въздушен филтър</option>
+      <option value="fuelFilter">Горивен филтър</option>
+      <option value="timingBelt">Ангренажен комплект</option>
+    </select>
+    <input type="number" id="lastKm" placeholder="Последни км" required>
+    <input type="number" id="intervalKm" placeholder="Интервал км" required>
+    <input type="text" id="notes" placeholder="Бележки">
+    <button type="submit">Добави / Обнови</button>
+  </form>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Част</th>
+        <th>Последни км</th>
+        <th>Интервал км</th>
+        <th>Следваща смяна км</th>
+        <th>Бележки</th>
+        <th>Действия</th>
+      </tr>
+    </thead>
+    <tbody id="maintenanceTable">
+      <!-- Данните се попълват от JS -->
+    </tbody>
+  </table>
+</main>
+
+<script>
+const defaultData = {
+  oil: { lastKm: 0, intervalKm: 10000, notes: '' },
+  airFilter: { lastKm: 0, intervalKm: 20000, notes: '' },
+  fuelFilter: { lastKm: 0, intervalKm: 30000, notes: '' },
+  timingBelt: { lastKm: 0, intervalKm: 150000, notes: '' }
+};
+
+let maintenanceData = JSON.parse(localStorage.getItem('maintenanceData')) || defaultData;
+
+function mapKeyword(keyword) {
+  const dictionary = {
+    oil: "Масло",
+    airFilter: "Въздушен филтър",
+    fuelFilter: "Горивен филтър",
+    timingBelt: "Ангренажен комплект"
+  };
+  return dictionary[keyword] || keyword;
+}
+
+// Функция за визуализиране на таблицата
+function renderTable() {
+  const tbody = document.getElementById('maintenanceTable');
+  tbody.innerHTML = '';
+  const currentKm = parseInt(prompt("Въведи текущи километри на колата:", "0")) || 0;
+
+  for (let part in maintenanceData) {
+    const data = maintenanceData[part];
+    const nextKm = data.lastKm + data.intervalKm;
+    let rowClass = 'green';
+    if (currentKm >= nextKm) rowClass = 'red';
+    else if (currentKm >= nextKm - data.intervalKm * 0.2) rowClass = 'yellow';
+
+    const tr = document.createElement('tr');
+    tr.className = rowClass;
+    tr.innerHTML = `
+      <td>${mapKeyword(part)}</td>
+      <td>${data.lastKm}</td>
+      <td>${data.intervalKm}</td>
+      <td>${nextKm}</td>
+      <td>${data.notes}</td>
+      <td><button class="action-btn" onclick="editPart('${part}')">Редактирай</button></td>
+    `;
+    tbody.appendChild(tr);
+  }
+}
+
+// Функция за редактиране
+function editPart(part) {
+  const data = maintenanceData[part];
+  document.getElementById('part').value = part;
+  document.getElementById('lastKm').value = data.lastKm;
+  document.getElementById('intervalKm').value = data.intervalKm;
+  document.getElementById('notes').value = data.notes;
+}
+
+// Добавяне / обновяване на част
+document.getElementById('addForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const part = document.getElementById('part').value;
+  const lastKm = parseInt(document.getElementById('lastKm').value);
+  const intervalKm = parseInt(document.getElementById('intervalKm').value);
+  const notes = document.getElementById('notes').value;
+
+  maintenanceData[part] = { lastKm, intervalKm, notes };
+  localStorage.setItem('maintenanceData', JSON.stringify(maintenanceData));
+  renderTable();
+  e.target.reset();
+});
+
+renderTable();
+</script>
+
+</body>
+</html>
